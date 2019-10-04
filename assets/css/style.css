@@ -1,3 +1,29 @@
 body {
     background-image: url("assets/images/ro")
 }
+
+#footer {
+    padding-top: 60px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0px;
+    color: #ffffff;
+      border-top: 6px solid #343a40;
+    }
+.jumbotron {
+    margin: 100px;
+}
+
+/*top id is carosol*/
+#top {
+    width: 100%;
+}
+
+/*section 1 id is ...*/
+/*section 2 id is ...*/
+/*section 3 id is ...*/
+/*section 3 id is ...*/
