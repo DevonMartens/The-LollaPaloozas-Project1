@@ -37,9 +37,11 @@ body {
 .jumbotron {
     margin: 100px;
     position: absolute;
+
 }
 
 /*carosol is band pictures*/
+/*carosol id is "top" band pictures*/
 /*section 1 id is band summary*/
 /*"section1" id is for card*/
 /*"section1" id is for card*/
