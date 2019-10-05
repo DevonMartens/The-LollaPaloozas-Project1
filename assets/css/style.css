@@ -14,13 +14,20 @@ body {
     color: #ffffff;
       border-top: 6px solid #343a40;
     }
-.jumbotron {
-    margin: 100px;
-}
+
 
 /*top id is carosol*/
 #top {
     width: 100%;
+}
+  
+#background {
+    position: relative;
+}
+
+.jumbotron {
+    margin: 100px;
+    position: absolute;
 }
 
 /*section 1 id is ...*/
