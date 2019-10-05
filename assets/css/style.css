@@ -1,9 +1,18 @@
-body {
-    background-image: url("assets/images/ro")
+#background {
+position: relative;
 }
 
+
+/* added*/
+
+body {
+    background-image: url(https://media.giphy.com/media/Zuic5hGIA9SrC/giphy.gif);
+    background-size: 100%;
+}
+
+
 #footer {
-    padding-top: 60px;
+    padding-top: 80px;
     position: fixed;
     left: 0px;
     bottom: 0px;
@@ -12,7 +21,7 @@ body {
     text-align: center;
     padding: 10px 0px;
     color: #ffffff;
-      border-top: 6px solid #343a40;
+      border-top: 10px solid #343a40;
     }
 
 
@@ -30,7 +39,16 @@ body {
     position: absolute;
 }
 
-/*section 1 id is ...*/
-/*section 2 id is ...*/
-/*section 3 id is ...*/
-/*section 3 id is ...*/
+/*carosol is band pictures*/
+/*section 1 id is band summary*/
+/*"section1" id is for card*/
+/*"section1" id is for card*/
+/* section 1 one headline id is id="summary">
+/*section 2 id is top hits*/
+/*section 2 id="section2"*/
+/*header id is topHits*/
+/*Section 2 image id topHitsImage*/
+/*section 3  is tour cities tour dates*/
+/*section 3 id="section3" */
+/*section 3 id="tourDatesImage" */
+/*section 3 header id="tourDates" */
