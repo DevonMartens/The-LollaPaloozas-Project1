@@ -40,7 +40,23 @@ body {
 
 }
 /*carosol is band pictures*/
+#carousel {
+    height: 200px;
+    width: 200px;
+}
+#carouselContainer {
+    height: 200px;
+    width: 200px;
+   
+}
 /*carosol id is "top" band pictures*/
+#top {
+
+}
+/*carosol logo id="logo" band pictures*/
+#logo {
+
+}
 /*section 1 id is band summary*/
 #section1 {
 width: 100%;
@@ -51,10 +67,16 @@ position: center;
 /* section 1 one headline id is id="summary">
 /*section 2 id is top hits*/
 /*section 2 id="section2"*/
+#section2 {
+    margin: 20px;
+}
 /*header id is topHits*/
 /*Section 2 image id topHitsImage*/
 /*section 3  is tour cities tour dates*/
 /*section 3 id="section3" */
+#section3 {
+    margin: 20px;
+}
 /*section 3 id="tourDatesImage" */
 /*section 3 header id="tourDates" */
 
