@@ -59,11 +59,13 @@ body {
 }
 /*section 1 id is band summary*/
 #section1 {
-width: 100%;
-position: center;
+margin: 20px;
 }
 /*"section1" id is for card*/
 /*"section1" id is for card*/
+#section2 {
+    margin: 20px;
+}
 /* section 1 one headline id is id="summary">
 /*section 2 id is top hits*/
 /*section 2 id="section2"*/
