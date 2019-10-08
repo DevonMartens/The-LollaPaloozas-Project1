@@ -84,9 +84,10 @@ margin: 20px;
 
 
 /*Media Query*/
-@media only screen and (max-width: 599px) and (min-width: 600px) {
+@media only screen and (max-width: 850px)  {
 body {
         background-image:none;
+        background: #343a40;
     }
 }
 
