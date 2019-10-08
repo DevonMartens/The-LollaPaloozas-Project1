@@ -83,6 +83,12 @@ margin: 20px;
 /*section 3 header id="tourDates" */
 
 
+/*Media Query*/
+@media only screen and (max-width: 599px) and (min-width: 600px) {
+body {
+        background-image:none;
+    }
+}
 
 
 
