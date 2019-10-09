@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">  
+    	<!-- JQuery ajax-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js">	</script>
+	
 </head>
 <header>
      <!--boot strap nav bar --> 
@@ -17,7 +20,7 @@
         <a class="navbar-brand text text-success border border-success p-2" href="#">BandFinder</a>
      
           <form class="form-inline my-2 my-lg-3 ml-auto">
-            <input class="form-control mr-sm-4" type="search" placeholder="Band Name" aria-label="Search">
+            <input class="form-control mr-sm-4" type="search" placeholder="Band Name" aria-label="Search" id="search">
             <button class="btn btn-outline-success my-2 my-sm-0" id="findBand" type="submit">Search</button>
           </form>
         </div>
@@ -62,8 +65,8 @@
                                <!--section 1--> 
                                 <div class="card" id="section1" >
                                         <div class="card-body">
-                                          <h5 class="card-title text text-center" id="summary">Learn about your favorite or new favorite bands</h5>
-                                          <p class="card-text text text-center"">Just type in the name above</p>
+                                          <h5 class="card-title text text-center" id="summaryHeader">Learn about your favorite or new favorite bands</h5>
+                                          <p class="card-text text text-center" id="summary">Just type in the name above</p>
                                         </div>
                                       </div>
                      

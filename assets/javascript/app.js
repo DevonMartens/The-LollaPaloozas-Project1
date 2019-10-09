@@ -27,40 +27,32 @@
 
 //hit headers, phots, text for each section//
 //see empty div code from trivia game//
-$(document).on("click", ".topics", function () {
 
-    $('#gifArea').empty();
-
-    $('#addTopic').removeClass("active");
-
-    $(this).addClass('active');
-
-
-
-    var type = $(this).attr("data-type");
-
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=gAqN16PRJ6aBi1cl5I5ZqVkcFB8zp3WG";
-
-   console.log(queryURL);
-
-   $.ajax ({
-
-       url: queryURL,
-
-       method: "GET"
-
-   })
-
-
-
-.then(function(response) {
-
-    var results = response.data;
-
-   console.log(results);
-
-   for (var i = 0; i < results.length; i++) { 
-
-       var animalDiv = $("<div class=\"animal-item\">");
-
+//wikipedia api work in progress
+ //input class is search
+$(document).ready(function(){
    
+    $("#findBand").on("click", function() {
+        //empty all text segments on click
+        $('#summary').empty();
+        $('#summaryHeader').empty();
+
+        //variables for search
+        var search = $("#search").val();
+        var searchPlain = $("#search").val().trim();
+      var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search + ';"
+      
+      $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+
+     .then(function(response) {
+
+         var results = response.data;
+       
+    function displayWikiData(result)
+    {
+        $("#summary").append(result.html);
+    }
+    
