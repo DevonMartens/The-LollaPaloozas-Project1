@@ -53,6 +53,7 @@ $(document).ready(function(){
        
     function displayWikiData(result)
     {
-        $("#summary").append(result.html);
+        $("#summaryHeader").append(query.pages.tittle[i]);
+        $("#summary").append(query.pages.extract[i]);
     }
     
