@@ -31,7 +31,13 @@
 //wikipedia api work in progress
  //input class is search
 $(document).ready(function(){
-   
+    $('#summary').hide();
+    $('#summaryHeader').hide();
+    $("section2Header").hide();
+    $("section2").hide();
+    $("section3").hide();
+    $("section3Header").hide();
+});
     $("#findBand").on("click", function() {
         //empty all text segments on click
         $('#summary').empty();
@@ -40,28 +46,47 @@ $(document).ready(function(){
         $("section2").empty();
         $("section3").empty();
         $("section3Header").empty();
+    });
 
+//function for wiki api
 
-
-
-        
+function getSummaryCard(search, page_id, func)
         //variables for search
+        //takes text from search bar turns it into a variable called search
         var search = $("#search").val();
         var searchPlain = $("#search").val().trim();
-      var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search + ';"
-      
+      var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search;
       $.ajax({
             url: queryURL,
             method: "GET"
+       
+        data: {
+            action:'parse',
+            prop:"text",
+            page:tittle
+            format:'json'
+          },
+          dataType:'jsonp',
+          success: function(data) {
+            var tittle = data.query.pages[page_id].tittle
+            var summary = data.query.pages[page_id].extract
+          }
         })
 
-     .then(function(response) {
 
-         var results = response.data;
-       
-    function displayWikiData(result)
-    {
-        $("#summaryHeader").append(query.pages.tittle[i]);
-        $("#summary").append(query.pages.extract[i]);
+     //    var results = response.data;
+          
+    function dowiki(place) {
+        var URL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=';
+
+
+     
+
+       function displayWikiData(result)
+    $("#summaryHeader").append.html(tittle));
+   $("#summary").append.html(summaty);
+        }
+
+        });
     }
     
