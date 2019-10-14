@@ -31,12 +31,12 @@
 //wikipedia api work in progress
  //input class is search
 $(document).ready(function(){
-
+//button is #finBand for searching
     $("#findBand").on("click", function() {
       emptyDiv(); 
       getSummaryCard();
+      displayWikiData();
        
-    }
 
 });
 }
@@ -56,14 +56,15 @@ $(document).ready(function(){
 
 function getSummaryCard(search, page_id, func)
         //variables for search
-        var searchPlain = ("$search").val();        
+        var searchPlain = ("$search").val().trim();       
         //takes text from search bar turns it into a variable called search
-        var search = $("#search").val().trim();
+        //every api needs search variable added to the end of thier link
+        var search = $("#search").val();
       var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search;
       $.ajax({
             url: queryURL,
             method: "GET"
-       
+      //please look at 
         data: {
             action:'parse',
             prop:"text",
@@ -78,10 +79,10 @@ function getSummaryCard(search, page_id, func)
           }
         })
 
-
-     //    var results = response.data;
+//results for wiki vairable
+ var results = response.data;
         
-
+//function added to button click to generate data from wiki api
        function displayWikiData(result)
     $("#summaryHeader").innerHTML(title));
    $("#summary").innerHTML(summary);
