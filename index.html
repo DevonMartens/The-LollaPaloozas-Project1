@@ -12,8 +12,7 @@
     	<!-- JQuery ajax-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
  
-  <!-- Javascript-->
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  
 </head>
 <header>
      <!--boot strap nav bar --> 
@@ -64,7 +63,7 @@
                         </div>
                       </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-xl-12">
                                <!--section 1--> 
                                 <div class="card" id="section1" >
                                         <div class="card-body">
@@ -77,23 +76,24 @@
                              
                     </div>
                     <div class="row">
-                            <div class="col">
+                            <div class="col-6 d-flex justify-content-center">
                                 <!--section 2--> 
+                                
                                 <div class="card bg-info" id="section2">
-                                    <img class="card-img-top" id="section2image" src="..." alt="Card image cap">
                                     <div class="card-body">
-                                      <h5 class="card-title" d="section2Header">section 2</h5>
-                                      <p class="card-text" id="section2txt">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h5 class="card-title" d="section2Header">Listen to band music!</h5>
+                                        <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                                     </div>
                             </div>
                           </div>
-                            <div class="col">
+                               <!--section 3 col--> 
+                               <div class="col-6 d-flex justify-content-center">
                                 <!--section 3--> 
                                 <div class="card bg-danger" id="section3" >
-                                    <img class="card-img-top" id="section3image" src="..." alt="Card image cap">
                                     <div class="card-body">
-                                      <h5 class="card-title" d="section3Header">section 3</h5>
-                                      <p class="card-text" id="section3txt">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <h5 class="card-title" d="section3Header">Find Tour Dates and Locations</h5>
+                                      <div class="section3text" w-type="event-discovery" w-tmapikey="e2pKHkJfAtT2i0ANLDgQ4kVGkk0MZe64" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="300" w-height="250" w-size="25" w-border="0" w-borderradius="4" w-postalcode="" w-radius="25" w-city="Atlanta" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="m" w-titlelink="off" w-sorting="groupByName" w-id="id_55j8ue" w-countrycode="US" w-source="ticketmaster" w-branding="Ticketmaster" w-latlong=""></div>
+                                    </div>
                                     </div>
                                 </div>
                         </div>
@@ -113,7 +113,11 @@
                   <p>&copy;2019 Devon Martens &copy;2019 Jenna Currin &copy;2019 Lisandra Laudato &copy;2019 Andro Khan</p>
                         </div>
                       </div>     
-​
+​<!-- Javascript-->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<!-- ticketmaster API link-->
+<script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
+<!-- end of head-->
 </body>
 ​
    

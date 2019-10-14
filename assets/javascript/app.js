@@ -36,15 +36,21 @@ $(document).ready(function(){
       emptyDiv(); 
       getSummaryCard();
        
-       
+    }
+
+});
+}
+  // empty all divs
       function emptyDiv() //empty all text segments on click
         $('#summary').empty();
         $('#summaryHeader').empty();
         $("section2Header").empty();
-        $("section2").empty();
-        $("section3").empty();
         $("section3Header").empty();
-       )
+    }
+
+});
+}
+  
 
 //function for wiki api
 
@@ -61,13 +67,13 @@ function getSummaryCard(search, page_id, func)
         data: {
             action:'parse',
             prop:"text",
-            page: tittle,
+            page: title,
             page: extract,
             format:'json'
           },
           dataType:'jsonp',
           success: function(data) {
-            var tittle = data.query.pages[page_id].tittle
+            var tittle = data.query.pages[page_id].title
             var summary = data.query.pages[page_id].extract
           }
         })
@@ -77,7 +83,7 @@ function getSummaryCard(search, page_id, func)
         
 
        function displayWikiData(result)
-    $("#summaryHeader").innerHTML(tittle));
+    $("#summaryHeader").innerHTML(title));
    $("#summary").innerHTML(summary);
         }
 
