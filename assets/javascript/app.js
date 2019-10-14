@@ -36,7 +36,15 @@ $(document).ready(function(){
         //empty all text segments on click
         $('#summary').empty();
         $('#summaryHeader').empty();
+        $("section2Header").empty();
+        $("section2").empty();
+        $("section3").empty();
+        $("section3Header").empty();
 
+
+
+
+        
         //variables for search
         var search = $("#search").val();
         var searchPlain = $("#search").val().trim();
