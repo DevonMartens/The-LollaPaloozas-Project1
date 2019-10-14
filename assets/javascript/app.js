@@ -56,7 +56,7 @@ $(document).ready(function(){
 
 function getSummaryCard(search, page_id, func)
         //variables for search
-        var searchPlain = ("$search").val().trim();       
+        var searchPlain = ("#search").val().trim();       
         //takes text from search bar turns it into a variable called search
         //every api needs search variable added to the end of thier link
         var search = $("#search").val();
