@@ -31,30 +31,28 @@
 //wikipedia api work in progress
  //input class is search
 $(document).ready(function(){
-    $('#summary').hide();
-    $('#summaryHeader').hide();
-    $("section2Header").hide();
-    $("section2").hide();
-    $("section3").hide();
-    $("section3Header").hide();
-});
+
     $("#findBand").on("click", function() {
-        //empty all text segments on click
+      emptyDiv(); 
+      getSummaryCard();
+       
+       
+      function emptyDiv() //empty all text segments on click
         $('#summary').empty();
         $('#summaryHeader').empty();
         $("section2Header").empty();
         $("section2").empty();
         $("section3").empty();
         $("section3Header").empty();
-    });
+       )
 
 //function for wiki api
 
 function getSummaryCard(search, page_id, func)
         //variables for search
+        var searchPlain = ("$search").val();        
         //takes text from search bar turns it into a variable called search
-        var search = $("#search").val();
-        var searchPlain = $("#search").val().trim();
+        var search = $("#search").val().trim();
       var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search;
       $.ajax({
             url: queryURL,
@@ -63,7 +61,8 @@ function getSummaryCard(search, page_id, func)
         data: {
             action:'parse',
             prop:"text",
-            page:tittle
+            page: tittle,
+            page: extract,
             format:'json'
           },
           dataType:'jsonp',
@@ -75,16 +74,11 @@ function getSummaryCard(search, page_id, func)
 
 
      //    var results = response.data;
-          
-    function dowiki(place) {
-        var URL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=';
-
-
-     
+        
 
        function displayWikiData(result)
-    $("#summaryHeader").append.html(tittle));
-   $("#summary").append.html(summaty);
+    $("#summaryHeader").innerHTML(tittle));
+   $("#summary").innerHTML(summary);
         }
 
         });
