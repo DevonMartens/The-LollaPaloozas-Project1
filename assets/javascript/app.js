@@ -30,7 +30,7 @@
 
 //wikipedia api work in progress
  //input class is search
- $(document).ready(function(){
+ //$(document).ready(function(){
   //button is #finBand for searching
       //$("#findBand").on("click", function() {
        // emptyDiv();
@@ -38,16 +38,56 @@
         //displayWikiData();
   //});
     // empty all divs
-        function emptyDiv(){//empty all text segments on click
-          $('#summary').empty();
-          $('#summaryHeader').empty();
-          $("section2Header").empty();
-          $("section3Header").empty();
-      }
-   
+
   
   //function for wiki api
   
+
+  $(document).ready(function() {
+    /* when form is submitted */
+   // $('.form').submit(function(){
+   //   $('#wiki').html(" "); // set innerHtml of res div as blank
+  //    callWikipedia();
+  //    return false;
+  //  });
+    /* when search button is clicked */
+    $('#findBand').click(function(){
+      $('#wiki').html(" ");
+      callWikipedia();
+      emptyDiv();
+    });
+    function callWikipedia(){
+      var q = $('#search').val();
+      var url = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch="+q+"&callback=?";
+      $.ajax({
+        url:url,
+        type: 'POST',
+        dataType: 'jsonp',
+        success: function(result){
+          var data = result.query.pages;
+          render(data);
+        },
+        error: function(err){
+          console.log(err);
+          alert('Oops something went wrong! Please try again.');
+        }
+      });
+    }
+    /* render function to append the search result pages */
+    function render(data){
+      var pageurl="http://en.wikipedia.org/?curid=";
+      for(var i in data){
+        $('#wiki').append("<div id='resultdiv'><a target='_blank' href='"+pageurl+data[i].pageid+"'><h3>"+data[i].title+"</h3><p>"+data[i].extract+"</p></a></div>");
+      }
+    }
+  });
+  function emptyDiv(){//empty all text segments on click
+          $('#summary').empty();
+      $('#summaryHeader').empty();
+       $("section2Header").empty();
+       $("section3Header").empty();
+      }
+   
   //function getSummaryCard(search, page_id, func)
           //variables for search
           //var searchPlain = ("#search").val().trim();      
@@ -98,7 +138,27 @@
       $("#findBand").on("click", function(){
         event.preventDefault();
       var search=$("#search").val();
-      bandinfo(search)
+      spotify(search)
       })
     })
   
+      //API for spotify.com
+     // function spotify(search){
+    //    var queryURL="https://api.spotify.com/v1/search/" + search + "";
+  
+   //     $.ajax({
+   //       url: queryURL,
+          method: "GET"
+   //   })
+   //   .then(function(response){
+    //    console.log(response)
+    //  })
+     // }
+  
+  //Search box in nav spotify()
+    //  $("#findBand").on("click", function(){
+   //     event.preventDefault();
+   //   var search=$("#search").val();
+   //   spotify(search)
+    //  })
+   // })
