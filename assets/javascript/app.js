@@ -71,7 +71,6 @@ var search=$("#search").val();
 spotify(search)
 $('#wiki').append("<div id='resultdiv'><a target='_blank' href="queryURL"></div>");
 })
-);
 
 
 //on click calling button #findBand//
