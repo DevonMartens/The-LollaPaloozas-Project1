@@ -1,18 +1,76 @@
-/*carosol is band pictures*/
-/*section 1 id is band summary*/
-/*"section1" id is for card*/
-/*"section1" id is for card*/
-/* section 1 one headline id is id="summary">
-/*section 2 id is top hits*/
-/*section 2 id="section2"*/
-/*header id is topHits*/
-/*Section 2 image id topHitsImage*/
-/*section 3  is tour cities tour dates*/
-/*section 3 id="section3" */
-/*section 3 id="tourDatesImage" */
-/*section 3 header id="tourDates" */
 
+$(document).ready(function() {
+  /* when form is submitted */
+ // $('.form').submit(function(){
+ //   $('#wiki').html(" "); // set innerHtml of res div as blank
+//    callWikipedia();
+//    return false;
+//  });
+  /* when search button is clicked */
+  $('#findBand').click(function(){
+    $('#wiki').html(" ");
+    callWikipedia();
+    emptyDiv();
+  });
+  function callWikipedia(){
+    var q = $('#search').val();
+    var url = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch="+q+"&callback=?";
+    $.ajax({
+      url:url,
+      type: 'POST',
+      dataType: 'jsonp',
+      success: function(result){
+        var data = result.query.pages;
+        render(data);
+      },
 
+      //if not correct
+      error: function(err){
+        console.log(err);
+        alert('Oops something went wrong! Please try again.');
+      }
+    });
+  }
+  /* render function to append the search result pages */
+  function render(data){
+    var pageurl="http://en.wikipedia.org/?curid=";
+    for(var i in data){
+      $('#wiki').append("<div id='resultdiv'><a target='_blank' href='"+pageurl+data[i].pageid+"'><h3>"+data[i].title+"</h3><p>"+data[i].extract+"</p></a></div>");
+    }
+  }
+});
+
+function emptyDiv(){//empty all text segments on click
+        $('#summary').empty();
+    $('#summaryHeader').empty();
+     $("section2Header").empty();
+     $("section3Header").empty();
+    }
+
+  //  function displayWikiData(result){
+  //    $("#summaryHeader").innerHTML(title);
+      $("#summary").innerHTML(summary);
+ //   }
+//API for Bandsintown.com
+function bandinfo(search){
+  var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+})
+.then(function(response){
+  console.log(response)
+})
+}
+
+//Search box in nav bandinfo()
+$("#findBand").on("click", function(){
+  event.preventDefault();
+var search=$("#search").val();
+spotify(search)
+})
+);
 
 
 //on click calling button #findBand//
@@ -43,51 +101,8 @@
   //function for wiki api
   
 
-  $(document).ready(function() {
-    /* when form is submitted */
-   // $('.form').submit(function(){
-   //   $('#wiki').html(" "); // set innerHtml of res div as blank
-  //    callWikipedia();
-  //    return false;
-  //  });
-    /* when search button is clicked */
-    $('#findBand').click(function(){
-      $('#wiki').html(" ");
-      callWikipedia();
-      emptyDiv();
-    });
-    function callWikipedia(){
-      var q = $('#search').val();
-      var url = "http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch="+q+"&callback=?";
-      $.ajax({
-        url:url,
-        type: 'POST',
-        dataType: 'jsonp',
-        success: function(result){
-          var data = result.query.pages;
-          render(data);
-        },
-        error: function(err){
-          console.log(err);
-          alert('Oops something went wrong! Please try again.');
-        }
-      });
-    }
-    /* render function to append the search result pages */
-    function render(data){
-      var pageurl="http://en.wikipedia.org/?curid=";
-      for(var i in data){
-        $('#wiki').append("<div id='resultdiv'><a target='_blank' href='"+pageurl+data[i].pageid+"'><h3>"+data[i].title+"</h3><p>"+data[i].extract+"</p></a></div>");
-      }
-    }
-  });
-  function emptyDiv(){//empty all text segments on click
-          $('#summary').empty();
-      $('#summaryHeader').empty();
-       $("section2Header").empty();
-       $("section3Header").empty();
-      }
-   
+  
+    
   //function getSummaryCard(search, page_id, func)
           //variables for search
           //var searchPlain = ("#search").val().trim();      
@@ -117,38 +132,14 @@
    //var results = response.data;
          
   //function added to button click to generate data from wiki api
-         function displayWikiData(result){
-            $("#summaryHeader").innerHTML(title);
-            $("#summary").innerHTML(summary);
-          }
-  //API for Bandsintown.com
-      function bandinfo(search){
-        var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
-  
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-      })
-      .then(function(response){
-        console.log(response)
-      })
-      }
-  
-  //Search box in nav bandinfo()
-      $("#findBand").on("click", function(){
-        event.preventDefault();
-      var search=$("#search").val();
-      spotify(search)
-      })
-    })
-  
+     
       //API for spotify.com
      // function spotify(search){
     //    var queryURL="https://api.spotify.com/v1/search/" + search + "";
   
    //     $.ajax({
    //       url: queryURL,
-          method: "GET"
+    //      method: "GET"
    //   })
    //   .then(function(response){
     //    console.log(response)
@@ -162,3 +153,18 @@
    //   spotify(search)
     //  })
    // })
+
+
+   /*carosol is band pictures*/
+/*section 1 id is band summary*/
+/*"section1" id is for card*/
+/*"section1" id is for card*/
+/* section 1 one headline id is id="summary">
+/*section 2 id is top hits*/
+/*section 2 id="section2"*/
+/*header id is topHits*/
+/*Section 2 image id topHitsImage*/
+/*section 3  is tour cities tour dates*/
+/*section 3 id="section3" */
+/*section 3 id="tourDatesImage" */
+/*section 3 header id="tourDates" */
