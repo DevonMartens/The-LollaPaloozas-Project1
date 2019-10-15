@@ -30,64 +30,75 @@
 
 //wikipedia api work in progress
  //input class is search
-$(document).ready(function(){
-//button is #finBand for searching
-    $("#findBand").on("click", function() {
-      emptyDiv(); 
-      getSummaryCard();
-      displayWikiData();
-       
-
-});
-}
-  // empty all divs
-      function emptyDiv() //empty all text segments on click
-        $('#summary').empty();
-        $('#summaryHeader').empty();
-        $("section2Header").empty();
-        $("section3Header").empty();
-    }
-
-});
-}
+ $(document).ready(function(){
+  //button is #finBand for searching
+      //$("#findBand").on("click", function() {
+       // emptyDiv();
+        //getSummaryCard();
+        //displayWikiData();
+  //});
+    // empty all divs
+        function emptyDiv(){//empty all text segments on click
+          $('#summary').empty();
+          $('#summaryHeader').empty();
+          $("section2Header").empty();
+          $("section3Header").empty();
+      }
+   
   
-
-//function for wiki api
-
-function getSummaryCard(search, page_id, func)
-        //variables for search
-        var searchPlain = ("#search").val().trim();       
-        //takes text from search bar turns it into a variable called search
-        //every api needs search variable added to the end of thier link
-        var search = $("#search").val();
-      var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search;
-      $.ajax({
-            url: queryURL,
-            method: "GET"
-      //please look at 
-        data: {
-            action:'parse',
-            prop:"text",
-            page: title,
-            page: extract,
-            format:'json'
-          },
-          dataType:'jsonp',
-          success: function(data) {
-            var tittle = data.query.pages[page_id].title
-            var summary = data.query.pages[page_id].extract
+  //function for wiki api
+  
+  //function getSummaryCard(search, page_id, func)
+          //variables for search
+          //var searchPlain = ("#search").val().trim();      
+          //takes text from search bar turns it into a variable called search
+          //every api needs search variable added to the end of thier link
+          //var search = $("#search").val();
+        //var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=' + search;
+        //$.ajax({
+              //url: queryURL,
+              //method: "GET",
+        //please look at
+          //data: {
+              //action:'parse',
+              //prop:"text",
+              //page: title,
+              //page: extract,
+              //format:'json'
+            //},
+            //dataType:'jsonp',
+            //success: function(data){
+              //var tittle = data.query.pages[page_id].title
+              //var summary = data.query.pages[page_id].extract
+            //}
+          //})
+  
+  //results for wiki vairable
+   //var results = response.data;
+         
+  //function added to button click to generate data from wiki api
+         function displayWikiData(result){
+            $("#summaryHeader").innerHTML(title);
+            $("#summary").innerHTML(summary);
           }
-        })
-
-//results for wiki vairable
- var results = response.data;
-        
-//function added to button click to generate data from wiki api
-       function displayWikiData(result)
-    $("#summaryHeader").innerHTML(title));
-   $("#summary").innerHTML(summary);
-        }
-
-        });
-    }
-    
+  //API for Bandsintown.com
+      function bandinfo(search){
+        var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
+  
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+      })
+      .then(function(response){
+        console.log(response)
+      })
+      }
+  
+  //Search box in nav bandinfo()
+      $("#findBand").on("click", function(){
+        event.preventDefault();
+      var search=$("#search").val();
+      bandinfo(search)
+      })
+    })
+  
