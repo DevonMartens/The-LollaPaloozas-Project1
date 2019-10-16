@@ -81,19 +81,6 @@
       }
     }
   });
-//   var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://deezerdevs-deezer.p.rapidapi.com/search?q=celine%20dion",
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-//         "x-rapidapi-key": "32114085fbmsh66c0ac35c05497bp1ecb5fjsnda6fe0344e00"
-//     }
-// }
-// $.ajax(settings).done(function (response) {
-//     console.log(response);
-// });
   function emptyDiv(){//empty all text segments on click
           $('#summary').empty();
       $('#summaryHeader').empty();
@@ -159,6 +146,19 @@
    
     
   
+
+
+
+
+
+
+
+
+
+
+
+
+
       //API for spotify.com
   
       // $.ajax(
@@ -198,3 +198,17 @@
    //   spotify(search)
     //  })
    // })
+
+   //   var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": "https://deezerdevs-deezer.p.rapidapi.com/search?q=celine%20dion",
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+//         "x-rapidapi-key": "32114085fbmsh66c0ac35c05497bp1ecb5fjsnda6fe0344e00"
+//     }
+// }
+// $.ajax(settings).done(function (response) {
+//     console.log(response);
+// });
