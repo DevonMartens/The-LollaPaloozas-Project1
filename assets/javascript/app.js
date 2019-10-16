@@ -81,6 +81,19 @@
       }
     }
   });
+//   var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": "https://deezerdevs-deezer.p.rapidapi.com/search?q=celine%20dion",
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+//         "x-rapidapi-key": "32114085fbmsh66c0ac35c05497bp1ecb5fjsnda6fe0344e00"
+//     }
+// }
+// $.ajax(settings).done(function (response) {
+//     console.log(response);
+// });
   function emptyDiv(){//empty all text segments on click
           $('#summary').empty();
       $('#summaryHeader').empty();
@@ -108,7 +121,7 @@
             //},
             //dataType:'jsonp',
             //success: function(data){
-              //var tittle = data.query.pages[page_id].title
+              //var title = data.query.pages[page_id].title
               //var summary = data.query.pages[page_id].extract
             //}
           //})
@@ -121,8 +134,16 @@
             $("#summaryHeader").innerHTML(title);
             $("#summary").innerHTML(summary);
           }
+ 
+  
+  //Search box in nav bandinfo()
+      $("#findBand").click("click", function(){
+        event.preventDefault();
+      var search=$("#search").val();
+      bandinfo(search)
+      })
   //API for Bandsintown.com
-      function bandinfo(search){
+       function bandinfo(search){
         var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
   
         $.ajax({
@@ -133,22 +154,37 @@
         console.log(response)
       })
       }
-  
-  //Search box in nav bandinfo()
-      $("#findBand").on("click", function(){
-        event.preventDefault();
-      var search=$("#search").val();
-      spotify(search)
-      })
-    })
+      
+
+   
+    
   
       //API for spotify.com
+  
+      // $.ajax(
+      //   {
+      //     method: "POST",
+      //     url: "https://accounts.spotify.com/api/token",
+      //     data: {
+      //       "grant_type":    "authorization_code",
+      //       // "code":          code,
+      //       // "redirect_uri":  myurl,
+      //       "client_secret": "2ad0f64ad33147c89db3e7f70611d76f",
+      //       "client_id":     "0e3ec55812a8435c82f8b0fa2b6d47fd"
+      //     },
+      //     success: function(result) {
+      //       // handle result...
+      //     },
+      //   }
+      // );
+
+    
      // function spotify(search){
     //    var queryURL="https://api.spotify.com/v1/search/" + search + "";
   
    //     $.ajax({
    //       url: queryURL,
-          method: "GET"
+          // method: "GET"
    //   })
    //   .then(function(response){
     //    console.log(response)
