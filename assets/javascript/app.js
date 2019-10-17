@@ -14,6 +14,71 @@
 
 
 
+ // $("#select-artist").on("click", function(event) {
+    
+ //   event.preventDefault();
+
+  //  var artist = $("#artist-input").val().trim();
+   
+ //   searchBandsInTown(artist);
+   
+
+   
+    
+  
+      //API for spotify.com
+  
+      // $.ajax(
+      //   {
+      //     method: "POST",
+      //     url: "https://accounts.spotify.com/api/token",
+      //     data: {
+      //       "grant_type":    "authorization_code",
+      //       // "code":          code,
+      //       // "redirect_uri":  myurl,
+      //       "client_secret": "2ad0f64ad33147c89db3e7f70611d76f",
+      //       "client_id":     "0e3ec55812a8435c82f8b0fa2b6d47fd"
+      //     },
+      //     success: function(result) {
+      //       // handle result...
+      //     },
+      //   }
+      // );
+
+    
+     // function spotify(search){
+    //    var queryURL="https://api.spotify.com/v1/search/" + search + "";
+  
+   //     $.ajax({
+   //       url: queryURL,
+          // method: "GET"
+   //   })
+   //   .then(function(response){
+    //    console.log(response)
+    //  })
+     // }
+  
+  //Search box in nav spotify()
+    //  $("#findBand").on("click", function(){
+   //     event.preventDefault();
+   //   var search=$("#search").val();
+   //   spotify(search)
+    //  })
+   // })
+
+   //   var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": "https://deezerdevs-deezer.p.rapidapi.com/search?q=celine%20dion",
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+//         "x-rapidapi-key": "32114085fbmsh66c0ac35c05497bp1ecb5fjsnda6fe0344e00"
+//     }
+// }
+// $.ajax(settings).done(function (response) {
+//     console.log(response);
+
 
 //on click calling button #findBand//
 
@@ -55,7 +120,6 @@
       $('#wiki').html(" ");
       callWikipedia();
       emptyDiv();
-      addTicketMaster();
     });
     function callWikipedia(){
       var q = $('#search').val();
@@ -95,19 +159,11 @@
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
-
-function addTicketMaster(){//empty all text segments on click
-  $('.section3update').append(");
-}
-
-
-
   function emptyDiv(){//empty all text segments on click
           $('#summary').empty();
       $('#summaryHeader').empty();
-       $("section2Header").empty();
+       $("#section2Header").empty();
        $("section3Header").empty();
-       $('.section3text').empty();
       }
    
   //function getSummaryCard(search, page_id, func)
@@ -153,57 +209,31 @@ function addTicketMaster(){//empty all text segments on click
       })
   //API for Bandsintown.com
        function bandinfo(search){
-        var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=codingbootcamp";
+        var queryURL="https://rest.bandsintown.com/artists/" + search + "/events?app_id=1ec373d0-aa4c-4ebb-a8aa-dfb1bf024661";
   
         $.ajax({
           url: queryURL,
           method: "GET"
       })
-      .then(function(response){
+      .done(function(response){
         console.log(response)
-      })
-      }
-      
-
-   
+     
+      var artistName = (response.name).innerHTML();
     
-  
-      //API for spotify.com
-  
-      // $.ajax(
-      //   {
-      //     method: "POST",
-      //     url: "https://accounts.spotify.com/api/token",
-      //     data: {
-      //       "grant_type":    "authorization_code",
-      //       // "code":          code,
-      //       // "redirect_uri":  myurl,
-      //       "client_secret": "2ad0f64ad33147c89db3e7f70611d76f",
-      //       "client_id":     "0e3ec55812a8435c82f8b0fa2b6d47fd"
-      //     },
-      //     success: function(result) {
-      //       // handle result...
-      //     },
-      //   }
-      // );
-
-    
-     // function spotify(search){
-    //    var queryURL="https://api.spotify.com/v1/search/" + search + "";
-  
-   //     $.ajax({
-   //       url: queryURL,
-          // method: "GET"
-   //   })
-   //   .then(function(response){
-    //    console.log(response)
-    //  })
-     // }
-  
-  //Search box in nav spotify()
-    //  $("#findBand").on("click", function(){
-   //     event.preventDefault();
-   //   var search=$("#search").val();
-   //   spotify(search)
-    //  })
-   // })
+      var artistURL = $("<a>").attr("href", response.url).append(artistName);
+      var artistImage = $("<img>").attr("src", response.thumb_url);
+      var trackerCount = $("<h2>").text(response.tracker_count + "Artist Fans");
+      var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " see events");
+      var Artist = $("<a>").attr("href", response.url).text("See Tour Dates");
+     
+      $('#section2Header').append(artistName)
+      $("#music").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
+    });
+    // Using jQuery, append the following to the #artist-div :
+    // The artist's name
+    // The artists thumbnail image
+    // The number of fans tracking this artist
+    // The number of upcoming events for this artist
+    // A link to the bandsintown url for this artist
+    // Note: Append actual HTML elements, not just text
+  }

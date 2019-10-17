@@ -83,7 +83,10 @@ margin: 20px;
 }
 /*section 3 id="tourDatesImage" */
 /*section 3 header id="tourDates" */
-
+#wiki {
+    color: black;
+    font-size: 15px;
+ }
 
 /*Media Query*/
 @media only screen and (max-width: 850px)  {
