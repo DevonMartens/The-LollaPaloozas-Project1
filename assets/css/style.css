@@ -130,7 +130,10 @@ body {
     height: 4px;
   }
 
-
+#wiki {
+    color: black;
+    font-size: 15px;
+}
 /*carosol is band pictures*/
 /*carosol id is "top" band pictures*/
 /*section 1 id is band summary*/

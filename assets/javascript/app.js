@@ -55,6 +55,7 @@
       $('#wiki').html(" ");
       callWikipedia();
       emptyDiv();
+      addTicketMaster();
     });
     function callWikipedia(){
       var q = $('#search').val();
@@ -94,11 +95,19 @@
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
+
+function addTicketMaster(){//empty all text segments on click
+  $('.section3update').append(");
+}
+
+
+
   function emptyDiv(){//empty all text segments on click
           $('#summary').empty();
       $('#summaryHeader').empty();
        $("section2Header").empty();
        $("section3Header").empty();
+       $('.section3text').empty();
       }
    
   //function getSummaryCard(search, page_id, func)
