@@ -49,7 +49,7 @@ function emptyDiv(){//empty all text segments on click
   }
 
 
-     
+  
 //function added to button click to generate data from wiki api
 //     function displayWikiData(result){
 //        $("#summaryHeader").innerHTML(title);

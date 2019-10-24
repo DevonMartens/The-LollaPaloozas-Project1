@@ -5,10 +5,10 @@ position: relative;
 
 /* added*/
 
-body {
-    background-image: url(https://media.giphy.com/media/Zuic5hGIA9SrC/giphy.gif);
+/*body {
+//    background-image: url(https://media.giphy.com/media/Zuic5hGIA9SrC/giphy.gif);
     background-size: 100%;
-}
+}*/
 
 
 #footer {
@@ -41,19 +41,19 @@ body {
     height: 200px;
     width: 200px;
 }
-#carouselContainer {
+.carouselContainer {
     height: 200px;
     width: 200px;
    
 }
 /*carosol id is "top" band pictures*/
-#top {
+#logo {
+  height: 200px;
+  width: 200px;
 
 }
 /*carosol logo id="logo" band pictures*/
-#logo {
 
-}
 /*section 1 id is band summary*/
 #section1 {
 margin: 20px;
