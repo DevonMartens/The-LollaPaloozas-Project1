@@ -35,11 +35,7 @@ body {
     position: relative;
 }
 
-.jumbotron {
-    margin: 20px 80px 10px 80px;
-    position: absolute;
 
-}
 /*carosol is band pictures*/
 #carousel {
     height: 200px;
