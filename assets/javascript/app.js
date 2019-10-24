@@ -42,7 +42,7 @@ function render(data){
 //empy things
 function emptyDiv(){//empty all text segments on click
       $('#summary').empty();
-  $('#summaryHeader').empty();
+ 
    
    $("section3Header").empty();
   
